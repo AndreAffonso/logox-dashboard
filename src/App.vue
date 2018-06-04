@@ -13,6 +13,5 @@ export default {
 <style>
 #app {
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
 }
 </style>
