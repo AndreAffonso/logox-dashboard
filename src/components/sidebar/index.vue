@@ -1,15 +1,14 @@
 <template>
-  <div class="hello">
-    <h1 class="title">{{msg}}</h1>
-  </div>
+ <el-aside width="260px">Aside</el-aside>
 </template>
 
 <script>
+
 export default {
-  name: 'HelloWorld',
+  name: 'SideBar',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: ''
     }
   }
 }
@@ -17,7 +16,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.title {
-  color: $blue;
-}
 </style>
