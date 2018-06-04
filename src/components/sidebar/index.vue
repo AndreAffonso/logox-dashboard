@@ -1,5 +1,5 @@
 <template>
-  <el-aside width="260px" class="sidebar">
+  <aside class="sidebar">
     <h1 class="logo">LOGO<span class="word-blue">X</span></h1>
     <ul>
       <li
@@ -9,7 +9,7 @@
         v-on:click="currentSection = section"
       >{{section}}</li>
     </ul>
-  </el-aside>
+  </aside>
 </template>
 
 <script>
@@ -28,6 +28,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .sidebar {
+  width: $sidenav-width;
   background: $bg-dark-grey;
   font-size: 14px;
   top: 0;
