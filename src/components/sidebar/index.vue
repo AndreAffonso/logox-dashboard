@@ -19,7 +19,7 @@ export default {
   data () {
     return {
       sections: ['Fazer nova Transação', 'Fazer simulação', 'Painel do cliente', 'Meus dados cadastrais', 'Configurações'],
-      currentSection: 'Painel do cliente'
+      currentSection: 'Meus dados cadastrais'
     }
   }
 }
@@ -39,7 +39,7 @@ export default {
   box-sizing: border-box;
 
   .logo {
-    padding: 1.2rem 1rem;
+    padding: 1.3rem 1rem;
     font-weight: bold;
     font-size: 20px;
     .word-blue {
