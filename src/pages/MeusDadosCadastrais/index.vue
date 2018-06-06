@@ -35,12 +35,9 @@
     </div>
 
     <div class="user-edit card">
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="0">Minha conta listo</el-menu-item>
-        <el-menu-item index="1">Domicílio bancário</el-menu-item>
-        <el-menu-item index="2">Editar cadastro</el-menu-item>
-        <el-menu-item index="3">Alterar senha</el-menu-item>
-        <el-menu-item index="4">Editar foto</el-menu-item>
+      <el-menu :default-active="currentTab" class="el-menu-demo" mode="horizontal" @select="handleSelecTab">
+        <el-menu-item v-for="tab in tabs" v-bind:key="tab.name" :index="tab.index">{{tab.name}}</el-menu-item>
+
       </el-menu>
       <div class="form-wrapper">
         <h1 class="title">Minha conta listo</h1>
@@ -167,7 +164,7 @@
 </template>
 
 <script>
-  import segments from '../../helpers/segments.js';
+import segments from '../../helpers/segments.js'
 
 export default {
   name: 'Content',
@@ -176,7 +173,14 @@ export default {
       section: 'Meus dados cadastrais',
       gender: '',
       segments,
-      currentSegment: ''
+      currentSegment: '',
+      tabs: [{name: 'Minha conta listo', index: 0}, {name: 'Domicílio bancário', index: 1}, {name: 'Editar cadastro', index: 2}, {name: 'Alterar senha', index: 3}, {name: 'Editar foto', index: 4}],
+      currentTab: 0
+    }
+  },
+  methods: {
+    handleSelectTab () {
+      console.log('novo')
     }
   }
 }
