@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header card">
     <span class="search">i Buscar</span>
     <span class="my-profile"> <span class="divider"/> Meu perfil i i i</span>
     </header>
@@ -21,14 +21,14 @@ export default {
 <style lang="scss" scoped>
 .header {
   font-family: 'Roboto', sans-serif;
-  padding: 0 35px;
+  padding: 0 32px;
   position: fixed;
   top: 0;
   left: $sidenav-width;
   right: 0;
-  background: white;
   height: $header-height;
   line-height: $header-height;
+  z-index: 5;
 
   box-sizing: border-box;
   .search {
@@ -46,7 +46,7 @@ export default {
       font-size: 28px;
       content: '';
       border-left: 1.2px solid $light-blue-grey;
-      margin-right: 30px;
+      margin-right: 32px;
     }
   }
 }

@@ -39,7 +39,7 @@ export default {
   box-sizing: border-box;
 
   .logo {
-    padding: 1.3rem 1rem;
+    padding: 1.5rem 1rem;
     font-weight: bold;
     font-size: 20px;
     .word-blue {

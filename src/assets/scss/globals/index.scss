@@ -1,0 +1,136 @@
+// mixins
+$breakpoints: (
+  'phone': 400px,
+  'phone-wide': 480px,
+  'phablet': 560px,
+  'tablet-small': 640px,
+  'tablet': 768px,
+  'tablet-wide': 1024px,
+  'desktop': 1248px,
+  'desktop-wide': 1440px
+);
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin divider($width, $margin) {
+  left: 0;
+  border-top: 0.4px solid $bg-white-light;
+  margin-left: -$margin;
+  margin-right: -$margin;
+  width: $width;
+}
+
+// Default classes
+.text-center {
+  text-align: center;
+}
+
+.text-spacing {
+  line-height: 1.5em;
+}
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  background: $white;
+}
+
+.title {
+  font-size: 30px;
+  color: $black;
+}
+
+.user-info-divider {
+  @include divider(400px, 4rem);
+}
+
+.user-edit-divider {
+  @include divider(110%, 2rem);
+}
+
+.btn-submit {
+  text-transform: uppercase;
+  font-size: 20px;
+  padding-right: 105px;
+  padding-left: 105px;
+  background-color: $blue;
+  &:hover {
+    background: $bg-blue-hover;
+    border-color: $bg-blue-hover;
+  }
+}
+
+// CUSTOM CHECKBOX
+.checkbox-round {
+  display: inline;
+  position: relative;
+}
+
+.checkbox-round label {
+  background-color: #fff;
+  border: 2px solid $blue;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+  transition: all 0.4s;
+  margin: 5px;
+}
+
+.checkbox-round input[type='checkbox'],
+.checkbox-round input[type='radio'] {
+  visibility: hidden;
+}
+
+.checkbox-round input[type='checkbox']:checked + label,
+.checkbox-round input[type='radio']:checked + label {
+  background-color: $blue;
+  border-color: $blue;
+}
+
+.checkbox-round-label {
+  line-height: 28px;
+  margin-left: 16px;
+  display: inline;
+  font-size: 13px;
+  color: $black;
+
+  top: 10px;
+  position: relative;
+}
+
+.checkbox-align {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.radio-button-label {
+  font-size: 20px;
+  color: $blue;
+  padding-left: 50px;
+  margin-right: 2rem;
+}
+
+.select-option {
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-label {
+  font-size: 18px;
+  color: $black;
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
