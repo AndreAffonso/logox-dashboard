@@ -1,24 +1,32 @@
 <template>
   <aside class="sidebar">
-    <h1 class="logo">LOGO<span class="word-blue">X</span></h1>
+    <div class="logo-wrapper">
+      <h1 class="logo">LOGO<span class="word-blue">X</span></h1>
+      <img class="menu-icon"   src="../../assets/img/Group 171.png"   alt="menu"/>
+    </div>
     <ul>
       <li
         v-for="section in sections"
         v-bind:key="section"
-        v-bind:class="['menu-item', { active: currentSection === section }]"
+        v-bind:class="['menu-item', { active: currentSection === section.name }]"
         v-on:click="currentSection = section"
-      >{{section}}</li>
+      ><img :src="section.img" :alt="section.name" /><p class="section-name">{{section.name}}</p></li>
     </ul>
   </aside>
 </template>
 
 <script>
+import img1 from '../../assets/img/Group 163.png'
+import img2 from '../../assets/img/Path 500.png'
+import img3 from '../../assets/img/noun_1323839_cc (1).png'
+import img4 from '../../assets/img/ic_fingerprint_black_24px.png';
+import img5 from '../../assets/img/noun_1299910_cc.png'
 
 export default {
   name: 'SideBar',
   data () {
     return {
-      sections: ['Fazer nova Transação', 'Fazer simulação', 'Painel do cliente', 'Meus dados cadastrais', 'Configurações'],
+      sections: [{name: 'Fazer nova Transação', img: img1}, {name: 'Fazer simulação', img: img2}, {name: 'Painel do cliente', img: img3}, {name: 'Meus dados cadastrais', img: img4}, {name: 'Configurações', img: img5}],
       currentSection: 'Meus dados cadastrais'
     }
   }
@@ -37,24 +45,38 @@ export default {
   position: fixed;
   height: 100%;
   box-sizing: border-box;
-
-  .logo {
+  .logo-wrapper {
     padding: 1.5rem 1rem;
-    font-weight: bold;
-    font-size: 20px;
-    .word-blue {
-      color: $blue;
+    .logo {
+      display: inline;
+      font-weight: bold;
+      font-size: 20px;
+      .word-blue {
+        color: $blue;
+      }
+    }
+    .menu-icon {
+      display: inline;
+      float: right;
     }
   }
 
   .menu-item {
+    position: relative;
     background: $bg-blue-grey;
-    padding: 1rem;
+    padding: 0.7rem;
     border-bottom: 1px solid $bg-dark-grey;
     transition: background-color 0.4s;
     &:hover {
       background: $bg-light-hover;
       color: $font-dark;
+    }
+
+    .section-name {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      margin-left: 40px;
     }
   }
   .active {

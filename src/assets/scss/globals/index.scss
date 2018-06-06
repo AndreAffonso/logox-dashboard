@@ -134,3 +134,50 @@ $breakpoints: (
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
+
+.naked-button {
+  background: none;
+  border: none;
+
+  &:active {
+    transform: scale(1.1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.user-icon {
+  background: rgba(3, 133, 219, 0.2);
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.user-icon-2 {
+  background: rgba(3, 133, 219, 0.2);
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.badge {
+  position: relative;
+}
+.badge[data-badge]:after {
+  content: attr(data-badge);
+  position: absolute;
+  top: 25px;
+  right: -2px;
+  font-size: 1em;
+  background: $blue;
+  color: white;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+}
+
+.align {
+  vertical-align: middle;
+}

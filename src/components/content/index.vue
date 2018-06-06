@@ -5,7 +5,7 @@
     <div class="cards-wrapper">
 
     <div class="user-info card">
-      <img  class="user-img" src="" alt="foto do usuário"/>
+      <img  class="user-img user-icon-2" src="../../assets/img/user_icon.svg" alt="foto do usuário"/>
       <h2 class="user-name text-center text-spacing">Pedro Costa</h2>
       <h3 class="user-email text-center text-spacing">pedro.costa@tesla.com.br</h3>
       <h4 class="company-name text-center text-spacing">Tesla Mecânica</h4>
@@ -17,11 +17,13 @@
           :percentage="70"/> 70% completo</p>
       <hr class="user-info-divider"/>
 
-      <p class="user-config text-spacing"><span class="icon">icon</span>Minha conta listo</p>
-      <p class="user-config text-spacing"><span class="icon">icon</span>Domicílio Bancário</p>
-      <p class="user-config text-spacing"><span class="icon">icon</span>Editar cadastro</p>
-      <p class="user-config text-spacing"><span class="icon">icon</span>Alterar senha</p>
-      <p class="user-config text-spacing"><span class="icon">icon</span>Editar foto</p>
+      <p class="user-config text-spacing"><img
+      class="user-edit-img"
+      src="../../assets/img/noun_1202141_cc.png" alt="Minha conta"> Minha conta listo</p>
+      <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_1426721_cc.png" alt="Domicílio bancário"> Domicílio Bancário</p>
+      <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_484247_cc.png" alt="Editar cadastro"> Editar cadastro</p>
+      <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_711818_cc.png" alt="Alterar senha"> Alterar senha</p>
+      <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_927439_cc.png" alt="Editar foto"> Editar foto</p>
 
       <hr class="user-info-divider"/>
 
@@ -143,7 +145,7 @@
             </div>
           </el-col>
           <el-col :xs="24" :md="7">
-            <span class="print-icon"><i>icone</i> Imprimir</span>
+            <p class="print-icon"><img src="../../assets/img/noun_950946_cc.png" alt="botão de imprimir" class="align"> Imprimir</p>
           </el-col>
           <el-col :xs="24" :md="8">
             <el-button type="primary" round class="btn-submit">Salvar</el-button>
@@ -237,10 +239,14 @@ export default {
       .user-config {
         font-size: 18px;
         color: $bg-blue-grey;
-        padding: 1rem 0;
+        padding: 0.6rem 0;
         .icon {
           margin-right: 40px;
           color: $blue;
+        }
+        .user-edit-img {
+          margin-right: 32px;
+          vertical-align: middle;
         }
       }
 
@@ -282,8 +288,8 @@ export default {
           font-size: 20px;
         }
         .form-submit-row {
-          padding-top: 4rem;
-          padding-bottom: 2rem;
+          padding-top: 11rem;
+          padding-bottom: 0rem;
           .submit-row-offset {
             margin-top: 4rem;
           }

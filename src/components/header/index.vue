@@ -1,7 +1,21 @@
 <template>
   <header class="header card">
-    <span class="search">i Buscar</span>
-    <span class="my-profile"> <span class="divider"/> Meu perfil i i i</span>
+    <button class="naked-button">
+      <img src="../../assets/img/icon_search.png" alt="botão de pesquisa">
+    </button>
+    <span class="search"> Buscar</span>
+    <p class="my-profile"> <span class="divider"/>
+    Meu perfil
+    <button class="naked-button align">
+      <img src="../../assets/img/noun_1256649_cc.png" alt="editar perfil">
+    </button>
+    <button class="naked-button align">
+      <img class="user-icon " src="../../assets/img/noun_1695617_cc_2.png" alt="editar perfil">
+    </button>
+    <button class="naked-button badge align" data-badge="4">
+      <img src="../../assets/img/noun_867355_cc.png" alt="editar perfil">
+    </button>
+    </p>
     </header>
 </template>
 
@@ -34,6 +48,7 @@ export default {
   .search {
     color: $blue;
     font-size: 20px;
+    margin-left: 20px;
   }
 
   .my-profile {
@@ -41,12 +56,21 @@ export default {
     color: $black;
     font-size: 15px;
     height: 28px;
+    line-height: 70px;
+
+    .align {
+      vertical-align: middle;
+    }
 
     .divider {
       font-size: 28px;
       content: '';
       border-left: 1.2px solid $light-blue-grey;
       margin-right: 32px;
+    }
+    .notification-badge {
+      margin-top: 20px;
+      margin-right: 0px;
     }
   }
 }
