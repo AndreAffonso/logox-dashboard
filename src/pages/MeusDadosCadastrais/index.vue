@@ -5,6 +5,7 @@
     <div class="cards-wrapper">
 
     <div class="user-info card">
+      <h1 class="mobile-section-title align">{{section}}</h1>
       <img  class="user-img user-icon-2" src="../../assets/img/user_icon.svg" alt="foto do usuário"/>
       <h2 class="user-name text-center text-spacing">Pedro Costa</h2>
       <h3 class="user-email text-center text-spacing">pedro.costa@tesla.com.br</h3>
@@ -25,12 +26,14 @@
       <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_711818_cc.png" alt="Alterar senha"> Alterar senha</p>
       <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_927439_cc.png" alt="Editar foto"> Editar foto</p>
 
+      <div class="user-phones">
       <hr class="user-info-divider"/>
+        <h2 class="contact text-center text-spacing">Dúvidas? Fale conosco</h2>
+        <h3 class="main-phone text-center text-spacing">0800.942.1835</h3>
+        <h3 class="aux-phone text-center text-spacing">11 3078.0876</h3>
+        <h3 class="aux-phone text-center text-spacing">11 3078.0914</h3>
 
-      <h2 class="contact text-center text-spacing">Dúvidas? Fale conosco</h2>
-      <h3 class="main-phone text-center text-spacing">0800.942.1835</h3>
-      <h3 class="aux-phone text-center text-spacing">11 3078.0876</h3>
-      <h3 class="aux-phone text-center text-spacing">11 3078.0914</h3>
+      </div>
 
     </div>
 
@@ -197,11 +200,18 @@ export default {
   bottom: 0;
   background: $bg-white-light;
   box-sizing: border-box;
+  @include mq('phone-wide') {
+    left: 0;
+    top: 0;
+  }
 
   .wrapper {
     box-sizing: border-box;
     position: relative;
     margin: 32px;
+    @include mq('phone-wide') {
+      margin: 0;
+    }
   }
 
   .section-title {
@@ -213,10 +223,26 @@ export default {
     margin-top: 29px;
     justify-content: space-between;
     display: flex;
+
+    .mobile-section-title {
+      display: none;
+      @include mq('phone-wide') {
+        display: block;
+        margin: auto;
+        font-size: 20px;
+      }
+    }
+
     .user-info {
       flex-basis: 400px;
       padding: 4rem;
+      padding-top: 2rem;
       box-sizing: border-box;
+      @include mq('phone-wide') {
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+      }
       .user-img {
         display: block;
         margin: 0 auto;
@@ -249,8 +275,14 @@ export default {
           color: $blue;
         }
         .user-edit-img {
-          margin-right: 32px;
+          margin-right: 12px;
           vertical-align: middle;
+        }
+      }
+
+      .user-phones {
+        @include mq('phone-wide') {
+          display: none;
         }
       }
 
@@ -274,6 +306,9 @@ export default {
       margin-left: 32px;
       box-sizing: border-box;
       flex-basis: 1152px;
+      @include mq('phone-wide') {
+        display: none;
+      }
       .form-wrapper {
         padding: 2rem 10rem 0rem 2rem;
         .btn-submit {

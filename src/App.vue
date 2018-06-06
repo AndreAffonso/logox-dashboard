@@ -44,22 +44,5 @@ export default {
 <style  lang="scss">
 #app {
   font-family: 'Montserrat', sans-serif;
-
-  .main {
-    padding: 0px;
-    position: absolute;
-    top: 65px;
-    left: $sidenav-width;
-    right: 0;
-    bottom: 0;
-    background: $bg-white-light;
-    box-sizing: border-box;
-
-    .wrapper {
-      box-sizing: border-box;
-      position: relative;
-      margin: 32px;
-    }
-  }
 }
 </style>
