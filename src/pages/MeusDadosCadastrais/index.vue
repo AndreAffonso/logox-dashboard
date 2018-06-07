@@ -105,11 +105,11 @@
             <label class="input-label" for="cep">Cep</label>
             <el-input id="cep" name="cep" placeholder="Digite seu cep"></el-input>
           </el-col>
-          <el-col :xs="24" :md="8">
+          <el-col :xs="24" :md="12" :xl="8">
             <label class="input-label" for="address">Endereço</label>
             <el-input id="address" name="address" placeholder="Digite seu endereço"></el-input>
           </el-col>
-          <el-col :xs="24" :md="4">
+          <el-col :xs="24" :md="12" :xl="4">
             <label class="input-label" for="number">Número</label>
             <el-input  id="number" name="number" placeholder="Número"></el-input>
           </el-col>
@@ -119,11 +119,11 @@
             <label class="input-label" for="tip">Complemento</label>
             <el-input  id="tip" name="tip" placeholder="Digite o complemento"></el-input>
           </el-col>
-          <el-col :xs="24" :md="8">
+          <el-col :xs="24" :md="12" :xl="8">
             <label class="input-label" for="city">Cidade</label>
             <el-input id="city" name="city" placeholder="Digite a sua cidade"></el-input>
           </el-col>
-          <el-col :xs="24" :md="4">
+          <el-col :xs="24" :md="12" :xl="4">
             <label class="input-label" for="uf">UF</label>
             <el-input id="uf" name="uf" placeholder="UF"></el-input>
           </el-col>
@@ -148,7 +148,7 @@
           </el-row>
 
           <el-row class="form-submit-row" :gutter="30">
-          <el-col :xs="24" :md="9">
+          <el-col :xs="24" :md="18" :xl="12">
             <div class="checkbox-round">
               <input type="checkbox" id="checkbox" />
               <label class="input-label" for="checkbox"></label>
@@ -156,10 +156,10 @@
               <p class="checkbox-round-label">Li e aceito os termos e condições de contrato</p>
             </div>
           </el-col>
-          <el-col :xs="24" :md="7">
+          <el-col :xs="24" :md="4" >
             <p class="print-icon"><img src="../../assets/img/noun_950946_cc.png" alt="botão de imprimir" class="align"> Imprimir</p>
           </el-col>
-          <el-col :xs="24" :md="8">
+          <el-col :xs="24" :xl="8" :md="24"><br><br>
             <el-button type="primary" round class="btn-submit">Salvar</el-button>
           </el-col>
           </el-row>
@@ -366,6 +366,9 @@ export default {
         position: relative;
         box-sizing: border-box;
         padding: 2rem 10rem 0rem 2rem;
+        @include mq('desktop-wide') {
+          padding: 2rem 6rem 0rem 2rem;
+        }
         @include mq('phone-wide') {
           .desktop-title {
             display: none;
@@ -396,7 +399,7 @@ export default {
         }
         .form-submit-row {
           padding-top: 9rem;
-          padding-bottom: 0rem;
+          padding-bottom: 2rem;
           @include mq('phone-wide') {
             padding-top: 1rem;
             padding-bottom: 1rem;
