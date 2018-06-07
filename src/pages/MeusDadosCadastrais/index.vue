@@ -22,7 +22,7 @@
 
       <p class="user-config text-spacing"><img
       class="user-edit-img"
-      src="../../assets/img/noun_1202141_cc.png" alt="Minha conta"> Minha conta listo</p>
+      src="../../assets/img/noun_1202141_cc.png" alt="Minha conta"> Minha conta Logox</p>
       <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_1426721_cc.png" alt="Domicílio bancário"> Domicílio Bancário</p>
       <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_484247_cc.png" alt="Editar cadastro">
       <label for="show-form" class="menu-icon">
@@ -159,7 +159,7 @@
           <el-col :xs="24" :md="4" >
             <p class="print-icon"><img src="../../assets/img/noun_950946_cc.png" alt="botão de imprimir" class="align"> Imprimir</p>
           </el-col>
-          <el-col :xs="24" :xl="8" :md="24"><br><br>
+          <el-col :xs="24" :xl="8" :md="24">
             <el-button type="primary" round class="btn-submit">Salvar</el-button>
           </el-col>
           </el-row>
