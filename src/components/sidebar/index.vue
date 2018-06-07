@@ -99,6 +99,7 @@ export default {
   }
 
   .menu-item {
+    z-index: 999;
     position: relative;
     background: $bg-blue-grey;
     padding: 0.7rem;
@@ -113,6 +114,11 @@ export default {
       text-align: center;
     }
     .name-style {
+      -webkit-user-select: none; /* Safari 3.1+ */
+      -moz-user-select: none; /* Firefox 2+ */
+      -ms-user-select: none; /* IE 10+ */
+      user-select: none; /* Standard syntax */
+      cursor: pointer;
       position: absolute;
       top: 50%;
       transform: translate(0, -50%);
@@ -138,18 +144,18 @@ export default {
     }
   }
   .no-style-link {
+    z-index: 3;
     position: absolute;
     width: 100%;
     height: 100%;
     color: inherit;
   }
-  .hidden-checkbox {
-    visibility: hidden;
-  }
+
   @include mq('phone-wide') {
     text-align: center;
     input[type='checkbox']:checked ~ .menu-item {
       display: block;
+      animation: slideInDown 0.8s;
     }
   }
 }

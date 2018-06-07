@@ -4,7 +4,7 @@
       <sidebar :sections="sections"/>
       <el-container>
         <main-header/>
-          <router-view :section="currentSection"/>
+          <router-view/>
       </el-container>
     </el-container>
   </div>

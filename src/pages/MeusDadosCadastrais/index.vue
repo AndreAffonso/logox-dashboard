@@ -4,8 +4,10 @@
     <h1 class="section-title title">{{section}}</h1>
     <div class="cards-wrapper">
 
+    <input class="hidden-checkbox" type="checkbox" id="show-form" role="button">
+
     <div class="user-info card">
-      <h1 class="mobile-section-title align">{{section}}</h1>
+
       <img  class="user-img user-icon-2" src="../../assets/img/user_icon.svg" alt="foto do usuário"/>
       <h2 class="user-name text-center text-spacing">Pedro Costa</h2>
       <h3 class="user-email text-center text-spacing">pedro.costa@tesla.com.br</h3>
@@ -22,7 +24,9 @@
       class="user-edit-img"
       src="../../assets/img/noun_1202141_cc.png" alt="Minha conta"> Minha conta listo</p>
       <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_1426721_cc.png" alt="Domicílio bancário"> Domicílio Bancário</p>
-      <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_484247_cc.png" alt="Editar cadastro"> Editar cadastro</p>
+      <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_484247_cc.png" alt="Editar cadastro">
+      <label for="show-form" class="menu-icon">
+     Editar cadastro</label></p>
       <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_711818_cc.png" alt="Alterar senha"> Alterar senha</p>
       <p class="user-config text-spacing"><img class="user-edit-img" src="../../assets/img/noun_927439_cc.png" alt="Editar foto"> Editar foto</p>
 
@@ -38,12 +42,19 @@
     </div>
 
     <div class="user-edit card">
-      <el-menu :default-active="currentTab" class="el-menu-demo" mode="horizontal" @select="handleSelecTab">
+      <div class="menu-responsive">
+        <h1 class="title form-title">
+          <label for="show-form">
+            <img src="../../assets/img/left-arrow.png" alt="">
+          </label> Meus dados cadastrais
+        </h1>
+      <el-menu   :default-active="currentTab" class="menu-responsive-bar" mode="horizontal" @select="handleSelecTab">
         <el-menu-item v-for="tab in tabs" v-bind:key="tab.name" :index="tab.index">{{tab.name}}</el-menu-item>
 
       </el-menu>
+      </div>
       <div class="form-wrapper">
-        <h1 class="title">Minha conta listo</h1>
+         <h1 class="title desktop-title">Minha conta Logox</h1>
         <el-form
           :inline="true"
           :model="formInline"
@@ -63,7 +74,7 @@
           <el-row :gutter="30">
           <el-col :xs="24" :md="12">
             <label class="input-label" for="segment">Segmento</label>
-            <el-select id="segment" name="segment" v-model="currentSegment" placeholder="Escolha o segmento">
+            <el-select class="select" id="segment" name="segment" v-model="currentSegment" placeholder="Escolha o segmento">
             <el-option class="select-option"
               v-for="segment in segments"
               :key="segment"
@@ -130,7 +141,7 @@
             <el-input id="phone-2" name="phone-2"  placeholder="(99) 99999-9999"></el-input>
           </el-col>
           <el-col :xs="24" :md="8">
-            <label class="input-label" for="phone-3">Telefone 2</label>
+            <label class="input-label" for="phone-3">Telefone 3</label>
             <el-input  id="phone-3" name="phone-3" placeholder="(99) 99999-9999"></el-input>
           </el-col>
 
@@ -141,6 +152,7 @@
             <div class="checkbox-round">
               <input type="checkbox" id="checkbox" />
               <label class="input-label" for="checkbox"></label>
+
               <p class="checkbox-round-label">Li e aceito os termos e condições de contrato</p>
             </div>
           </el-col>
@@ -154,8 +166,6 @@
         </el-form>
       </div>
     </div>
-
-    <!-- <el-card class="user-data">piditate aspernatur molestias?</el-card> -->
 
     </div>
 
@@ -177,7 +187,7 @@ export default {
       gender: '',
       segments,
       currentSegment: '',
-      tabs: [{name: 'Minha conta listo', index: 0}, {name: 'Domicílio bancário', index: 1}, {name: 'Editar cadastro', index: 2}, {name: 'Alterar senha', index: 3}, {name: 'Editar foto', index: 4}],
+      tabs: [{name: 'Minha conta Logox', index: 0}, {name: 'Domicílio bancário', index: 1}, {name: 'Editar cadastro', index: 2}, {name: 'Alterar senha', index: 3}, {name: 'Editar foto', index: 4}],
       currentTab: 0
     }
   },
@@ -206,17 +216,32 @@ export default {
   }
 
   .wrapper {
+    input[type='checkbox']:checked ~ .user-info {
+      @include mq('phone-wide') {
+        display: none;
+      }
+    }
+    input[type='checkbox']:checked ~ .user-edit {
+      @include mq('phone-wide') {
+        display: block;
+      }
+    }
+
     box-sizing: border-box;
     position: relative;
     margin: 32px;
     @include mq('phone-wide') {
       margin: 0;
+      padding: 0;
     }
   }
 
   .section-title {
     margin-top: 0px;
     padding: 0px;
+    @include mq('phone-wide') {
+      display: none;
+    }
   }
 
   .cards-wrapper {
@@ -224,21 +249,13 @@ export default {
     justify-content: space-between;
     display: flex;
 
-    .mobile-section-title {
-      display: none;
-      @include mq('phone-wide') {
-        display: block;
-        margin: auto;
-        font-size: 20px;
-      }
-    }
-
     .user-info {
       flex-basis: 400px;
       padding: 4rem;
-      padding-top: 2rem;
       box-sizing: border-box;
       @include mq('phone-wide') {
+        padding-bottom: 6rem;
+        display: block;
         position: absolute;
         width: 100%;
         z-index: 2;
@@ -303,14 +320,59 @@ export default {
     }
 
     .user-edit {
+      @include mq('phone-wide') {
+        display: none;
+        position: absolute;
+        top: 0;
+        .menu-responsive {
+          z-index: 1;
+          position: fixed;
+          margin-top: 40px;
+          background: $white;
+          padding: 1rem;
+          padding-bottom: 0;
+          width: 100%;
+          max-height: 90px;
+          max-width: 100%;
+          overflow-x: auto;
+          white-space: nowrap;
+          border-bottom: 1px solid $bg-white-light;
+          // overflow: auto;
+        }
+      }
+
       margin-left: 32px;
       box-sizing: border-box;
       flex-basis: 1152px;
+      .user-edit-divider {
+        @include divider(110%, 2rem);
+      }
       @include mq('phone-wide') {
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        .user-edit-divider {
+          @include divider(130%, 2rem);
+        }
+      }
+      .form-title {
         display: none;
+        @include mq('phone-wide') {
+          display: block;
+          font-size: 25px;
+        }
       }
       .form-wrapper {
+        position: relative;
+        box-sizing: border-box;
         padding: 2rem 10rem 0rem 2rem;
+        @include mq('phone-wide') {
+          .desktop-title {
+            display: none;
+          }
+          margin: 0;
+          padding: 10rem 2rem 0rem 2rem;
+        }
         .btn-submit {
           text-transform: uppercase;
           font-size: 20px;
@@ -321,14 +383,25 @@ export default {
             background: $bg-blue-hover;
             border-color: $bg-blue-hover;
           }
+          @include mq('phone-wide') {
+            margin-top: 2rem;
+          }
         }
         .print-icon {
           color: $blue;
           font-size: 20px;
+          @include mq('phone-wide') {
+            display: none;
+          }
         }
         .form-submit-row {
-          padding-top: 11rem;
+          padding-top: 9rem;
           padding-bottom: 0rem;
+          @include mq('phone-wide') {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-bottom: 68px;
+          }
           .submit-row-offset {
             margin-top: 4rem;
           }
@@ -342,6 +415,9 @@ export default {
     margin-top: 43px;
     margin-bottom: 43px;
     right: 36px;
+    @include mq('phone-wide') {
+      display: none;
+    }
   }
 }
 </style>

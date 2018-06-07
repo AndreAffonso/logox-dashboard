@@ -21,10 +21,6 @@
   @include divider(400px, 4rem);
 }
 
-.user-edit-divider {
-  @include divider(110%, 2rem);
-}
-
 .btn-submit {
   text-transform: uppercase;
   font-size: 20px;
@@ -72,11 +68,14 @@
   line-height: 28px;
   margin-left: 16px;
   display: inline;
-  font-size: 13px;
+  font-size: 12px;
   color: $black;
-
   top: 10px;
   position: relative;
+
+  @include mq('phone-wide') {
+    margin-left: 24px;
+  }
 }
 
 .checkbox-align {
@@ -88,8 +87,8 @@
 .radio-button-label {
   font-size: 20px;
   color: $blue;
-  padding-left: 50px;
-  margin-right: 2rem;
+  padding-left: 2.5rem;
+  margin-right: 0.5rem;
 }
 
 .select-option {
@@ -149,4 +148,27 @@
 
 .align {
   vertical-align: middle;
+}
+
+.select {
+  width: 100%;
+}
+
+.main {
+  padding: 0px;
+  position: absolute;
+  top: 65px;
+  left: $sidenav-width;
+  right: 0;
+  bottom: 0;
+  background: $bg-white-light;
+  box-sizing: border-box;
+  @include mq('phone-wide') {
+    left: 0;
+    top: 0;
+  }
+}
+
+.hidden-checkbox {
+  visibility: hidden;
 }
